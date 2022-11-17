@@ -2,35 +2,40 @@ class Destino{
   var _id;
   var _name;
   var _ciudad;
+  var _departamento;
+  var _temperatura;
   var _descripcion;
   var _rating;
   var _genre;
+  var _urlimagen;
 
-  Destino(this._id, this._name, this._ciudad, this._descripcion, this._rating,
-      this._genre);
+
+  Destino(this._id, this._name, this._ciudad, this._departamento, this._temperatura, this._descripcion, this._rating,
+      this._genre, this._urlimagen);
 
   Map<String,dynamic> toJson() => {
     'id' : _id,
     'name' : _name,
     'ciudad' : _ciudad,
-    'descripcioón' : _descripcion,
+    'departamento' : _departamento,
+    'temperatura' : _temperatura,
+    'descripción' : _descripcion,
     'rating' : _rating,
     'genre' : _genre,
+    'urlimagen' : _urlimagen,
+
   };
 
   Destino.fromJson(Map<String,dynamic> json)
       : _id = json['id'],
         _name = json['name'],
         _ciudad = json['ciudad'],
-        _descripcion = json['descripcioón'],
+        _departamento = json['departamento'],
+        _temperatura = json['temperatura'],
+        _descripcion = json['descripción'],
         _rating = json['rating'],
-        _genre = json['genre'];
-
-  get id => _id;
-
-  set id(value) {
-    _id = value;
-  }
+        _genre = json['genre'],
+        _urlimagen = json['urlimagen'];
 
   get genre => _genre;
 
@@ -44,15 +49,21 @@ class Destino{
     _rating = value;
   }
 
-  get pages => _descripcion;
+  get urlimagen => _urlimagen;
 
-  set pages(value) {
+  set urlimagen(value) {
+    _urlimagen = value;
+  }
+
+  get descripcion => _descripcion;
+
+  set descripcion(value) {
     _descripcion = value;
   }
 
-  get author => _ciudad;
+  get ciudad => _ciudad;
 
-  set author(value) {
+  set ciudad(value) {
     _ciudad = value;
   }
 
@@ -60,5 +71,11 @@ class Destino{
 
   set name(value) {
     _name = value;
+  }
+
+  get id => _id;
+
+  set id(value) {
+    _id = value;
   }
 }

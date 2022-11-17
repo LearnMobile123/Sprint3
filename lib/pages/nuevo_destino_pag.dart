@@ -14,7 +14,10 @@ class _NuevoDestinoPagState extends State<NuevoDestinoPag> {
   final FirebaseApi _firebaseApi = FirebaseApi();
   final _name = TextEditingController();
   final _ciudad = TextEditingController();
+  final _departamento = TextEditingController();
+  final _temperatura = TextEditingController();
   final _descripcion = TextEditingController();
+  final _urlimagen = TextEditingController();
 
   double _rating = 3.0;
 
@@ -50,7 +53,7 @@ class _NuevoDestinoPagState extends State<NuevoDestinoPag> {
     if (_trekking) genres = "$genres Trekking";
     if (_peregrinacion) genres = "$genres Peregrinación";
     if (_playa) genres = "$genres Playa";
-    var destino= Destino("", _name.text, _ciudad.text, _descripcion.text, _rating, genres);
+    var destino= Destino("", _name.text, _ciudad.text, _departamento.text, _temperatura.text, _descripcion.text, _rating, genres, _urlimagen.text);
     _createDestino(destino);
   }
 
@@ -58,7 +61,7 @@ class _NuevoDestinoPagState extends State<NuevoDestinoPag> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Nuevo Libro"),
+        title: Text("Nuevo Destino"),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
@@ -85,12 +88,41 @@ class _NuevoDestinoPagState extends State<NuevoDestinoPag> {
                 height: 16.0,
               ),
               TextFormField(
+                controller: _departamento,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(), labelText: 'Departamento'),
+                keyboardType: TextInputType.text,
+              ),
+              const SizedBox(
+                height: 16.0,
+              ),
+              TextFormField(
+                controller: _temperatura,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(), labelText: 'Temperatura'),
+                keyboardType: TextInputType.text,
+              ),
+              const SizedBox(
+                height: 16.0,
+              ),
+              TextFormField(
                 controller: _descripcion,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Descripción del lugar'),
                 keyboardType: TextInputType.text,
               ),
+              const SizedBox(
+                height: 16.0,
+              ),
+              TextFormField(
+                controller: _urlimagen,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Agregar url imagen del destino'),
+                keyboardType: TextInputType.text,
+              ),
+
               const SizedBox(
                 height: 16.0,
               ),
@@ -114,7 +146,7 @@ class _NuevoDestinoPagState extends State<NuevoDestinoPag> {
                 height: 16.0,
               ),
               const Text(
-                "Destinos turisticos",
+                "Tipo de destino turistico",
                 style: TextStyle(fontSize: 20),
               ),
               const SizedBox(

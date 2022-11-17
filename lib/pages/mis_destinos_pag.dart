@@ -57,10 +57,10 @@ class _MisdestinosPagState extends State<MisdestinosPag> {
                 return Card(
                     child: ListTile(
                       onTap: (){
-                       Navigator.push(context, MaterialPageRoute(builder: (context) => ViewPag(destino)));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => ViewPag(destino)));
                       },
                       title: Text(destino['name']),
-                      subtitle: Text(destino['descripcioón']),
+                      subtitle: Text(destino['descripción']),
                     ));
               },
             );

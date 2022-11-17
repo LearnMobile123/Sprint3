@@ -46,18 +46,22 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _validateUser() async {
-    if (_email.text.isEmpty || _password.text.isEmpty){
-      _showMsg("Debe digitar el correo y la contraseña");
+    if (_email.text.isEmpty || _password.text.isEmpty) {
+      _showMsg("Debe digitar el correo y la contrasena");
     } else {
       var result = await _firebaseApi.logInUser(_email.text, _password.text);
       String msg = "";
-      if (result == "invalid-email"){msg = "El correo electrónico está mal escrito";} else
-      if (result == "wrong-password"){msg = "correo o contraseña incorrecto ";} else
-      if (result == "network-request-failed"){msg = "Revise la conexión a internet ";
+      if (result == "invalid-email") {
+        msg = "El correo electónico está mal escrito";
+      } else if (result == "wrong-password") {
+        msg = "Correo o contrasena incorrecta";
+      } else if (result == "network-request-failed") {
+        msg = "Revise su conexion a internet";
       } else {
-        msg = "Bienvenido ";
+        msg = "Usuario registrado con exito";
         _showMsg(msg);
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MisdestinosPag()));
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => const MisdestinosPag()));
       }
     }
   }
