@@ -36,7 +36,7 @@ class _MisdestinosPagState extends State<MisdestinosPag> {
                     child: ListTile(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context) => ViewPag(destino)));
-                      },
+                        },
                       title: Text(destino['name']),
                       subtitle: Text(destino['descripción']),
                     ));

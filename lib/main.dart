@@ -8,7 +8,7 @@ import 'package:project_app/Models//local_destino.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform);

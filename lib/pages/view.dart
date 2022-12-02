@@ -7,9 +7,15 @@ import 'package:project_app/boxes.dart';
 import 'package:project_app/pages/login_page.dart';
 
 class ViewPag extends StatefulWidget {
+
+  final LocalDestino  destino;
   QueryDocumentSnapshot result;
 
-  ViewPag(this.result, {Key? key}) : super(key: key);
+
+
+  ViewPag(this.result, {Key? key, required this.destino}) : super(key: key);
+
+
 
   @override
   State<ViewPag> createState() => _ViewPagState();
@@ -23,16 +29,24 @@ class _ViewPagState extends State<ViewPag> {
   void _onFavoritesButtonClicked() {
 
     var localDestino = LocalDestino()
-    ..name = widget.result["name"]
-    ..ciudad = widget.result["ciudad"]
-        ..departamento = widget.result["departamento"]
-        ..descripcion = widget.result["descripcion"]
-        ..temperatura = widget.result["temperatura"]
-        ..urlimagen = widget.result["urlimagen"];
+      ..name = widget.destino.name
+      ..ciudad = widget.destino.ciudad
+      ..departamento = widget.destino.departamento
+      ..descripcion = widget.destino.descripcion
+      ..temperatura = widget.destino.temperatura
+      ..urlimagen = widget.destino.urlimagen;
+
+
+
+
+
+
 
     final box = Boxes.getFavoritesBox();
     box.add(localDestino);
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +101,7 @@ class _ViewPagState extends State<ViewPag> {
                         icon: const Icon(Icons.favorite_border),
                         color: Colors.red,
                         onPressed: ((){
-                          _onFavoritesButtonClicked();
+                         _onFavoritesButtonClicked();
                         }),
                       ),
 

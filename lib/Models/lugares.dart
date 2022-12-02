@@ -1,5 +1,5 @@
 class Lugares {
-  var _address;
+  var _addres;
   var _id;
   var _latitud;
   var _longitud;
@@ -52,10 +52,10 @@ class Lugares {
     _id = value;
   }
 
-  get address => _address;
+  get aaddres => _addres;
 
-  set address(value) {
-    _address = value;
+  set addres(value) {
+    _addres = value;
   }
 
 
